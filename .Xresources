@@ -1,7 +1,7 @@
 ! Configuration for xterm
 *xterm*.faceName: Monospace
 *xterm*.faceNameDoublesize: WenQuanYi Zen Hei Mono
-*xterm*.faceSize: 8
+*xterm*.faceSize: 10 
 
 ! Make Alt work normally
 *xterm*.metaSendsEscape: true
