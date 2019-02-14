@@ -181,3 +181,5 @@ client.unfocused        $back_color $back_color $text_color $back_color $back_co
 client.urgent           $back_color $back_color $text_color $back_color $back_color
 client.placeholder      $back_color $back_color $text_color $back_color $back_color
 client.background       $back_color
+
+bindsym --release $mod+z exec slock
