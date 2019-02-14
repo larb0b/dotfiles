@@ -26,8 +26,6 @@ font pango:monospace 8
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
-focus_follows_mouse no
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -170,3 +168,16 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+focus_follows_mouse no
+
+set $fore_color "#bd93f9"
+set $back_color "#6272a4"
+set $text_color "#f8f8f2"
+
+client.focused          $fore_color $fore_color $text_color $fore_color $fore_color
+client.focused_inactive $back_color $back_color $text_color $back_color $back_color
+client.unfocused        $back_color $back_color $text_color $back_color $back_color
+client.urgent           $back_color $back_color $text_color $back_color $back_color
+client.placeholder      $back_color $back_color $text_color $back_color $back_color
+client.background       $back_color
