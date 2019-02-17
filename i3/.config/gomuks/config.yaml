@@ -1,7 +1,0 @@
-mxid: ""
-access_token: ""
-homeserver: ""
-cache_dir: /home/larbob/.cache/gomuks
-history_dir: /home/larbob/.cache/gomuks/history
-media_dir: /home/larbob/.cache/gomuks/media
-state_dir: /home/larbob/.cache/gomuks/state
