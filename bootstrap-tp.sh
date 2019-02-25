@@ -5,12 +5,12 @@ if [ $(id -u) != 0 ]; then
 	exit 1
 fi
 echo "Making necessary dirs"
-mkdir -p /home/$USER/.local/bin
-mkdir -p /home/$USER/Backgrounds
+mkdir -p /home/$SUDO_USER/.local/bin
+mkdir -p /home/$SUDO_USER/Backgrounds
 mkdir -p /etc/X11/xorg.conf.d
 echo "Removing ~/.bashrc"
-if [ -ne /home/$USER/.bashrc ]; then
-	rm /home/$USER/.bashrc
+if [ -ne /home/$SUDO_USER/.bashrc ]; then
+	rm /home/$SUDO_USER/.bashrc
 fi
 echo "Copying TearFree Xorg config"
 cp 20-intel.conf /etc/X11/xorg.conf.d
