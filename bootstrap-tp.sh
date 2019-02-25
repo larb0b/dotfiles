@@ -13,7 +13,7 @@ rm ~/.bashrc
 echo "Copying TearFree Xorg config"
 cp 20-intel.conf /etc/X11/xorg.conf.d
 echo "Installing packages"
-apt install xorg feh stow i3 tmux firefox vim network-manager golang-go pulseaudio alsa-utils vlc -y
+apt install xorg feh stow i3 tmux firefox vim network-manager golang-go pulseaudio alsa-utils vlc python3-pip -y
 echo "Stowing configs"
 stow Backgrounds Xorg-tp bash-tp i3 scripts tmux vim
 echo "Configuring git"
