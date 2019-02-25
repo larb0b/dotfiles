@@ -1,5 +1,5 @@
-#!/bin/bash
-set -e
+#!/bin/sh
+set -eu
 if [ $(id -u) != 0 ]; then
 	echo "You must be root to run this script."
 	exit 1
@@ -13,10 +13,10 @@ rm ~/.bashrc
 echo "Copying TearFree Xorg config"
 cp 20-intel.conf /etc/X11/xorg.conf.d
 echo "Installing packages"
-sudo apt install xorg feh stow i3 tmux firefox vim network-manager -y
+apt install xorg feh stow i3 tmux firefox vim network-manager golang-go -y
 echo "Stowing configs"
 stow Backgrounds Xorg-tp bash-tp i3 scripts tmux vim
-echo "Git config"
+echo "Configuring git"
 git config --global user.name "Larkin Nickle"
 git config --global user.email "me@larbob.org"
 git config --global credential.helper store
