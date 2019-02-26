@@ -3,4 +3,5 @@ if xrandr | grep "VGA1 connected"; then
 fi
 xinput --set-prop 11 "libinput Accel Speed" -0.75
 feh --bg-fill /home/larbob/Backgrounds/howl.good.jpg
+compton &
 exec i3
