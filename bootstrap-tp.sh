@@ -3,13 +3,13 @@ set -eu
 sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 echo "Making necessary dirs"
-mkdir -p /home/$SUDO_USER/.local/bin
-mkdir -p /home/$SUDO_USER/.local/man/man1
-mkdir -p /home/$SUDO_USER/Backgrounds
-mkdir -p /etc/X11/xorg.conf.d
+mkdir -p ~/.local/bin
+mkdir -p ~/.local/man/man1
+mkdir -p ~/Backgrounds
+sudo mkdir -p /etc/X11/xorg.conf.d
 echo "Removing ~/.bashrc"
-if [ ! -f /home/$SUDO_USER/.bashrc ]; then
-	rm /home/$SUDO_USER/.bashrc
+if [ ! -f ~/.bashrc ]; then
+	rm ~/.bashrc
 fi
 echo "Copying TearFree Xorg config"
 sudo cp 20-intel.conf /etc/X11/xorg.conf.d
@@ -29,7 +29,7 @@ sudo bash -c 'cd "/tmp/drawterm" && CONF=unix make && mv drawterm /home/$SUDO_US
 echo "Stowing configs"
 stow bgs Xorg-tp bash-tp i3 tmux vim git
 echo "Installing pfirefox script"
-cp scripts/pfirefox /home/$SUDO_USER/.local/bin/pfirefox
+cp scripts/pfirefox ~/.local/bin/pfirefox
 echo "Removing temporary files"
-rm -rf /tmp/drawterm
+sudo rm -rf /tmp/drawterm
 echo "Done."
