@@ -8,7 +8,7 @@ mkdir -p ~/.local/man/man1
 mkdir -p ~/Backgrounds
 sudo mkdir -p /etc/X11/xorg.conf.d
 echo "Removing ~/.bashrc"
-if [ ! -f ~/.bashrc ]; then
+if [ -f ~/.bashrc ]; then
 	rm ~/.bashrc
 fi
 echo "Copying TearFree Xorg config"
@@ -23,7 +23,9 @@ sudo git clone https://github.com/9fans/plan9port /usr/local/plan9
 sudo bash -c 'cd "/usr/local/plan9" && ./INSTALL'
 echo "Cloning, building, and installing drawterm"
 hg clone https://code.9front.org/hg/drawterm /tmp/drawterm
-sudo bash -c 'cd "/tmp/drawterm" && CONF=unix make && mv drawterm /home/$SUDO_USER/.local/bin/drawterm && mv drawterm.1 /home/$SUDO_USER/.local/man/man1/drawterm.1'
+sudo bash -c 'cd "/tmp/drawterm" && CONF=unix make'
+cp /tmp/drawterm/drawterm ~/.local/bin/drawterm
+cp /tmp/drawterm/drawterm.1 ~/.local/man/man1/drawterm.1
 echo "Stowing configs"
 stow bgs Xorg-tp bash-tp i3 tmux vim git
 echo "Installing pfirefox script"
