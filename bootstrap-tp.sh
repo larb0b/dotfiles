@@ -1,6 +1,6 @@
 #!/bin/sh
 set -eu
-if [ "$(bash -c 'cd .. && pwd')" != "/home/$USER" ]; then
+if [ "$(sh -c 'cd .. && pwd')" != "/home/$USER" ]; then
 	echo "Current directory must be in the root of your home folder."
 	exit 1
 fi
