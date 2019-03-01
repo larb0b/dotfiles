@@ -14,11 +14,13 @@ echo "Making necessary dirs"
 mkdir -p ~/.local/bin
 mkdir -p ~/.local/man/man1
 mkdir -p ~/Backgrounds
-sudo mkdir -p /etc/X11/xorg.conf.d
+if [ "$1" == "tp" ]; then
+    echo "Installing Xorg configuration"
+    sudo mkdir -p /etc/X11/xorg.conf.d
+    sudo cp 20-intel.conf /etc/X11/xorg.conf.d
+fi
 echo "Removing ~/.bashrc"
 [ -e ~/.bashrc ] && rm ~/.bashrc
-echo "Copying TearFree Xorg config"
-sudo cp 20-intel.conf /etc/X11/xorg.conf.d
 echo "Updating apt and installing packages"
 sudo apt update
 sudo apt install xorg xinput feh stow i3 tmux firefox vim network-manager golang-go pulseaudio alsa-utils vlc python3-pip build-essential mercurial htop compton libx11-dev libxext-dev libxt-dev xorg-dev -y
