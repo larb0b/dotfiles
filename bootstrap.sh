@@ -4,6 +4,10 @@ if [ "$(cd .. && pwd)" != "$HOME" ]; then
 	echo "Current directory must be in the root of your home folder."
 	exit 1
 fi
+if [ "$#" != "1" ]; then
+	echo "Usage: bootstrap.sh [tp]"
+	exit 2
+fi
 sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 echo "Making necessary dirs"
@@ -29,7 +33,12 @@ sudo sh -c 'cd "/tmp/drawterm" && CONF=unix make'
 cp /tmp/drawterm/drawterm ~/.local/bin/drawterm
 cp /tmp/drawterm/drawterm.1 ~/.local/man/man1/drawterm.1
 echo "Stowing configs"
-stow bgs Xorg-tp bash-tp i3 tmux vim git
+stow bgs i3 tmux vim git
+if [ "$1" == "tp" ]; then
+	stow Xorg-tp bash-tp
+else
+	stow Xorg bash
+fi
 echo "Installing pfirefox script"
 cp scripts/pfirefox ~/.local/bin/pfirefox
 echo "Removing temporary files"
