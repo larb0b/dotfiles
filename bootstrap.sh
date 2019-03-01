@@ -5,7 +5,7 @@ if [ "$(cd .. && pwd)" != "$HOME" ]; then
 	exit 1
 fi
 if [ "$#" != "1" ]; then
-	echo "Usage: bootstrap.sh [tp]"
+	echo "Usage: bootstrap.sh [tp/dt]"
 	exit 2
 fi
 sudo -v
@@ -36,7 +36,7 @@ echo "Stowing configs"
 stow bgs i3 tmux vim git
 if [ "$1" == "tp" ]; then
 	stow Xorg-tp bash-tp
-else
+elif [ "$1" == "dt" ]; then
 	stow Xorg bash
 fi
 echo "Installing pfirefox script"
