@@ -1,5 +1,9 @@
 #!/bin/sh
 set -eu
+if [ "$(bash -c 'cd .. && pwd')" != "/home/$USER" ]; then
+	echo "Current directory must be in the root of your home folder."
+	exit 1
+fi
 sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 echo "Making necessary dirs"
