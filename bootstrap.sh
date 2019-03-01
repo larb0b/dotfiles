@@ -14,7 +14,7 @@ echo "Making necessary dirs"
 mkdir -p ~/.local/bin
 mkdir -p ~/.local/man/man1
 mkdir -p ~/Backgrounds
-if [ "$1" == "tp" ]; then
+if [ "$1" = "tp" ]; then
     echo "Installing Xorg configuration"
     sudo mkdir -p /etc/X11/xorg.conf.d
     sudo cp 20-intel.conf /etc/X11/xorg.conf.d
@@ -36,9 +36,9 @@ cp /tmp/drawterm/drawterm ~/.local/bin/drawterm
 cp /tmp/drawterm/drawterm.1 ~/.local/man/man1/drawterm.1
 echo "Stowing configs"
 stow bgs i3 tmux vim git
-if [ "$1" == "tp" ]; then
+if [ "$1" = "tp" ]; then
 	stow Xorg-tp bash-tp
-elif [ "$1" == "dt" ]; then
+elif [ "$1" = "dt" ]; then
 	stow Xorg bash
 fi
 echo "Installing pfirefox script"
