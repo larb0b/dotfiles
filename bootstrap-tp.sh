@@ -10,7 +10,7 @@ mkdir -p /home/$SUDO_USER/.local/man/man1
 mkdir -p /home/$SUDO_USER/Backgrounds
 mkdir -p /etc/X11/xorg.conf.d
 echo "Removing ~/.bashrc"
-if [ -ne /home/$SUDO_USER/.bashrc ]; then
+if [ ! -f /home/$SUDO_USER/.bashrc ]; then
 	rm /home/$SUDO_USER/.bashrc
 fi
 echo "Copying TearFree Xorg config"
