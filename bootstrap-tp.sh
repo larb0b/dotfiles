@@ -8,9 +8,7 @@ mkdir -p ~/.local/man/man1
 mkdir -p ~/Backgrounds
 sudo mkdir -p /etc/X11/xorg.conf.d
 echo "Removing ~/.bashrc"
-if [ -f ~/.bashrc ]; then
-	rm ~/.bashrc
-fi
+[ -e ~/.bashrc ] && rm ~/.bashrc
 echo "Copying TearFree Xorg config"
 sudo cp 20-intel.conf /etc/X11/xorg.conf.d
 echo "Updating apt and installing packages"
