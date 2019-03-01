@@ -15,11 +15,9 @@ echo "Copying TearFree Xorg config"
 sudo cp 20-intel.conf /etc/X11/xorg.conf.d
 echo "Updating apt and installing packages"
 sudo apt update
-sudo apt install xorg xinput feh stow i3 tmux firefox vim network-manager golang-go pulseaudio alsa-utils vlc python3-pip build-essential mercurial htop compton -y
+sudo apt install xorg xinput feh stow i3 tmux firefox vim network-manager golang-go pulseaudio alsa-utils vlc python3-pip build-essential mercurial htop compton libx11-dev libxext-dev libxt-dev xorg-dev -y
 echo "Replacing /etc/network/interfaces"
 sudo cp interfaces /etc/network/interfaces
-echo "Installing dependencies for Plan 9 goodness"
-sudo apt install libx11-dev libxext-dev libxt-dev xorg-dev
 echo "Cloning, building, and installing plan9port"
 sudo git clone https://github.com/9fans/plan9port /usr/local/plan9
 sudo bash -c 'cd "/usr/local/plan9" && ./INSTALL'
