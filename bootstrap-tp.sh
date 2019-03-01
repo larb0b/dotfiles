@@ -1,6 +1,6 @@
 #!/bin/sh
 set -eu
-if [ "$(cd .. && pwd)" != "/home/$USER" ]; then
+if [ "$(cd .. && pwd)" != "$HOME" ]; then
 	echo "Current directory must be in the root of your home folder."
 	exit 1
 fi
@@ -22,10 +22,10 @@ echo "Replacing /etc/network/interfaces"
 sudo cp interfaces /etc/network/interfaces
 echo "Cloning, building, and installing plan9port"
 sudo git clone https://github.com/9fans/plan9port /usr/local/plan9
-sudo bash -c 'cd "/usr/local/plan9" && ./INSTALL'
+sudo sh -c 'cd "/usr/local/plan9" && ./INSTALL'
 echo "Cloning, building, and installing drawterm"
 hg clone https://code.9front.org/hg/drawterm /tmp/drawterm
-sudo bash -c 'cd "/tmp/drawterm" && CONF=unix make'
+sudo sh -c 'cd "/tmp/drawterm" && CONF=unix make'
 cp /tmp/drawterm/drawterm ~/.local/bin/drawterm
 cp /tmp/drawterm/drawterm.1 ~/.local/man/man1/drawterm.1
 echo "Stowing configs"
