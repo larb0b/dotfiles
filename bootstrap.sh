@@ -41,8 +41,8 @@ if [ "$1" = "tp" ]; then
 elif [ "$1" = "dt" ]; then
 	stow Xorg bash
 fi
-echo "Installing pfirefox script"
-cp scripts/pfirefox ~/.local/bin/pfirefox
+echo "Installing scripts"
+cp -r scripts/ ~/.local/bin/
 echo "Removing temporary files"
 sudo rm -rf /tmp/drawterm
 echo "Done."
