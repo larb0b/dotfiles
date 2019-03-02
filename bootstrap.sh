@@ -4,7 +4,7 @@ if [ "$(cd .. && pwd)" != "$HOME" ]; then
 	echo "Current directory must be in the root of your home folder."
 	exit 1
 fi
-if [ "$#" != "1" ]; then
+if [ "$1" != "tp" -a "$1" != "dt" ]; then
 	echo "Usage: bootstrap.sh [tp/dt]"
 	exit 2
 fi
@@ -14,7 +14,7 @@ echo "Making necessary dirs"
 mkdir -p ~/.local/bin
 mkdir -p ~/.local/man/man1
 mkdir -p ~/Backgrounds
-if [ "$1" = "tp" ]; then
+if [ "$1" -eq "tp" ]; then
     echo "Installing Xorg configuration"
     sudo mkdir -p /etc/X11/xorg.conf.d
     sudo cp 20-intel.conf /etc/X11/xorg.conf.d
@@ -36,9 +36,9 @@ cp /tmp/drawterm/drawterm ~/.local/bin/drawterm
 cp /tmp/drawterm/drawterm.1 ~/.local/man/man1/drawterm.1
 echo "Stowing configs"
 stow bgs i3 tmux vim git
-if [ "$1" = "tp" ]; then
+if [ "$1" -eq "tp" ]; then
 	stow Xorg-tp bash-tp
-elif [ "$1" = "dt" ]; then
+elif [ "$1" -eq "dt" ]; then
 	stow Xorg bash
 fi
 echo "Installing scripts"
