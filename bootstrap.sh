@@ -14,11 +14,6 @@ echo "Making necessary dirs"
 mkdir -p ~/.local/bin
 mkdir -p ~/.local/man/man1
 mkdir -p ~/Backgrounds
-if [ "$1" -eq "tp" ]; then
-    echo "Installing Xorg configuration"
-    sudo mkdir -p /etc/X11/xorg.conf.d
-    sudo cp 20-intel.conf /etc/X11/xorg.conf.d
-fi
 echo "Removing ~/.bashrc"
 [ -e ~/.bashrc ] && rm ~/.bashrc
 echo "Updating apt and installing packages"
@@ -34,11 +29,16 @@ hg clone https://code.9front.org/hg/drawterm /tmp/drawterm
 sudo sh -c 'cd "/tmp/drawterm" && CONF=unix make'
 cp /tmp/drawterm/drawterm ~/.local/bin/drawterm
 cp /tmp/drawterm/drawterm.1 ~/.local/man/man1/drawterm.1
-echo "Stowing configs"
+echo "Stowing general configs"
 stow bgs i3 tmux vim git
-if [ "$1" -eq "tp" ]; then
+if [ "$1" = "tp" ]; then
+	echo "Stowing tp configs"
 	stow Xorg-tp bash-tp
-elif [ "$1" -eq "dt" ]; then
+	echo "Installing Xorg configuration"
+	sudo mkdir -p /etc/X11/xorg.conf.d
+	sudo cp 20-intel.conf /etc/X11/xorg.conf.d
+elif [ "$1" = "dt" ]; then
+	echo "Stowing dt configs"
 	stow Xorg bash
 fi
 echo "Installing scripts"
