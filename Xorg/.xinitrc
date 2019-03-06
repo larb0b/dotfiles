@@ -1,3 +1,3 @@
-feh --bg-fill /home/larbob/Backgrounds/howl.good.jpg
+feh --randomize --bg-fill /home/larbob/Backgrounds/*.good.jpg
 compton &
 exec i3
