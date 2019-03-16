@@ -183,3 +183,6 @@ client.placeholder      $back_color $back_color $text_color $back_color $back_co
 client.background       $back_color
 
 bindsym --release $mod+z exec slock
+
+# Program overrides
+for_window [class="Tor Browser"] floating enabled
