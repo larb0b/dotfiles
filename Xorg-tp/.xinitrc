@@ -1,7 +1,7 @@
 if xrandr | grep "VGA1 connected"; then
 	xrandr --output VGA1 --auto --left-of LVDS1
 fi
-xinput --set-prop 11 "libinput Accel Speed" -0.75
+xinput --set-prop "TPPS/2 IBM TrackPoint" "libinput Accel Speed" -0.75
 feh --randomize --bg-scale /home/larbob/Backgrounds/*.good.jpg
 compton &
 exec i3
