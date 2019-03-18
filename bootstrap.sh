@@ -42,7 +42,7 @@ elif [ "$1" = "dt" ]; then
 	stow Xorg bash
 fi
 echo "Installing scripts"
-cp -r scripts/ ~/.local/bin/
+cp -R scripts/* ~/.local/bin/
 echo "Removing temporary files"
 sudo rm -rf /tmp/drawterm
 echo "Done."
