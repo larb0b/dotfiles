@@ -1,3 +1,4 @@
+xrdb -merge ~/.Xresources
 if xrandr | grep "VGA1 connected"; then
 	xrandr --output VGA1 --auto --left-of LVDS1
 fi
