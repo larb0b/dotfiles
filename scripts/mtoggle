@@ -1,0 +1,4 @@
+#!/bin/sh
+x=0
+xinput list-props "TPPS/2 IBM TrackPoint" | grep "libinput Scroll Method Enabled" | grep -q "0, 0, 0" && x=1
+xinput set-prop "TPPS/2 IBM TrackPoint" "libinput Scroll Method Enabled" 0, 0, $x
