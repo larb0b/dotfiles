@@ -3,6 +3,6 @@ if xrandr | grep "VGA1 connected"; then
 	xrandr --output VGA1 --auto --left-of LVDS1
 fi
 xinput --set-prop "TPPS/2 IBM TrackPoint" "libinput Accel Speed" -0.75
-feh --randomize --bg-scale /home/larbob/Backgrounds/*.good.jpg
+feh --no-fehbg --bg-scale "$(find $HOME/Backgrounds -type f -name "*.good.jpg" | sort -R | sed 1q)"
 compton &
 exec i3

@@ -1,4 +1,4 @@
 xrdb -merge ~/.Xresources
-feh --randomize --bg-scale /home/larbob/Backgrounds/*.good.jpg
+feh --no-fehbg --bg-scale -- "$(find $HOME/Backgrounds -type f -name "*.good.jpg" | sort -R | sed 1q)"
 compton &
 exec i3
