@@ -4,7 +4,7 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
+PS1="\[\e[1;36m\][\[\e[m\]\[\e[1;35m\]\u\[\e[m\]\[\e[1;36m\]@\[\e[m\]\[\e[1;32m\]\h\[\e[m\] \[\e[1;36m\]\W\[\e[m\]\[\e[1;36m\]]\[\e[m\]\[\e[m\] "
 if [ "$TERM" != "linux" ]; then
 	[ "x$TMUX" == "x" ] && tmux
 fi
