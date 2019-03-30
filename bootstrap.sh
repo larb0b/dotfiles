@@ -19,6 +19,8 @@ echo "Removing ~/.bashrc"
 echo "Updating apt and installing packages"
 sudo apt update
 sudo apt install xorg xinput feh stow i3 tmux firefox vim network-manager golang-go pulseaudio alsa-utils vlc python3-pip build-essential mercurial htop compton libx11-dev libxext-dev libxt-dev xorg-dev -y
+echo "Installing Python stuff (pip3)"
+pip3 install youtube-dl
 echo "Replacing /etc/network/interfaces"
 sudo cp interfaces /etc/network/interfaces
 echo "Cloning, building, and installing plan9port"
