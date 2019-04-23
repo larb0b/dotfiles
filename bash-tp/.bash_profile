@@ -20,6 +20,3 @@ function mon {
 		echo "Arguments: l for monitor to the left, r for monitor to the right, o to turn off secondary monitor."
 	fi
 }
-function streamer {
-	youtube-dl -o - "$1" | vlc -
-} 
