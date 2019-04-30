@@ -31,6 +31,11 @@ hg clone https://code.9front.org/hg/drawterm /tmp/drawterm
 sudo sh -c 'cd "/tmp/drawterm" && CONF=unix make'
 cp /tmp/drawterm/drawterm ~/.local/bin/drawterm
 cp /tmp/drawterm/drawterm.1 ~/.local/man/man1/drawterm.1
+echo "Cloning, building, and installing st"
+git clone https://git.suckless.org/st st-git
+cp st/config.h st-git/config.h
+sh -c 'cd st-git && make'
+cp st-git/st ~/.local/bin/st
 echo "Stowing general configs"
 stow bgs i3 tmux vim git
 if [ "$1" = "tp" ]; then
@@ -47,4 +52,5 @@ echo "Installing scripts"
 cp -R scripts/* ~/.local/bin/
 echo "Removing temporary files"
 sudo rm -rf /tmp/drawterm
+rm -rf st-git
 echo "Done."
