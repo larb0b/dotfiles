@@ -44,6 +44,7 @@ if [ "$1" = "tp" ]; then
 	echo "Installing Xorg configuration"
 	sudo mkdir -p /etc/X11/xorg.conf.d
 	sudo cp 20-intel.conf /etc/X11/xorg.conf.d
+	sudo cp 50-trackpoint.conf /etc/X11/xorg.conf.d
 elif [ "$1" = "dt" ]; then
 	echo "Stowing dt configs"
 	stow Xorg bash
