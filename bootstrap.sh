@@ -4,7 +4,7 @@ if [ "$(cd .. && pwd)" != "$HOME" ]; then
 	echo "Current directory must be in the root of your home folder."
 	exit 1
 fi
-if [ "$1" != "tp" -a "$1" != "dt" ]; then
+if [ "${1-}" != "tp" -a "${1-}" != "dt" ]; then
 	echo "Usage: bootstrap.sh [tp/dt]"
 	exit 2
 fi
