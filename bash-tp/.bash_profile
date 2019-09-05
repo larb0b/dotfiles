@@ -1,7 +1,5 @@
 # .bash_profile
 
-# Get the aliases and functions
-[ -f $HOME/.bashrc ] && . $HOME/.bashrc
 PLAN9=/usr/local/plan9
 export PATH=$PATH:$HOME/.local/bin:$PLAN9/bin
 function setbg {
@@ -20,3 +18,4 @@ function mon {
 		echo "Arguments: l for monitor to the left, r for monitor to the right, o to turn off secondary monitor."
 	fi
 }
+[ -f $HOME/.bashrc ] && . $HOME/.bashrc
