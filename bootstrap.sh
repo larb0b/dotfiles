@@ -22,7 +22,7 @@ sudo apt install xorg xinput feh stow i3 tmux firefox vim network-manager golang
 echo "Installing Python stuff (pip3)"
 pip3 install youtube-dl
 echo "Replacing /etc/network/interfaces"
-sudo cp interfaces /etc/network/interfaces
+sudo cp bootscraps/interfaces /etc/network/interfaces
 echo "Cloning, building, and installing plan9port"
 sudo git clone https://github.com/9fans/plan9port /usr/local/plan9
 sudo sh -c 'cd "/usr/local/plan9" && ./INSTALL'
@@ -43,8 +43,8 @@ if [ "$1" = "tp" ]; then
 	stow tp 
 	echo "Installing tp Xorg configuration"
 	sudo mkdir -p /etc/X11/xorg.conf.d
-	sudo cp 20-intel.conf /etc/X11/xorg.conf.d
-	sudo cp 50-trackpoint.conf /etc/X11/xorg.conf.d
+	sudo cp bootscraps/20-intel.conf /etc/X11/xorg.conf.d
+	sudo cp bootscraps/50-trackpoint.conf /etc/X11/xorg.conf.d
 elif [ "$1" = "dt" ]; then
 	echo "Stowing dt configs"
 	stow dt
