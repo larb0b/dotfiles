@@ -37,7 +37,7 @@ cp st/config.h st-git/config.h
 sh -c 'cd st-git && make'
 cp st-git/st ~/.local/bin/st
 echo "Stowing general configs"
-stow i3 tmux vim Xorg
+stow i3 tmux vim bash Xorg
 if [ "$1" = "tp" ]; then
 	echo "Stowing tp configs"
 	stow tp 
