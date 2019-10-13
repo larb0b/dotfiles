@@ -1,4 +1,4 @@
 xrdb -merge ~/.Xresources
-feh --no-fehbg --bg-scale -- "$(find $HOME/Backgrounds -name "*.good.jpg" | sort -R | sed 1q)"
+[ -f $HOME/.specificxrc ] && . $HOME/.specificxrc
 compton &
 exec i3

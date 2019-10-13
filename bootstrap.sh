@@ -37,17 +37,17 @@ cp st/config.h st-git/config.h
 sh -c 'cd st-git && make'
 cp st-git/st ~/.local/bin/st
 echo "Stowing general configs"
-stow i3 tmux vim
+stow i3 tmux vim Xorg
 if [ "$1" = "tp" ]; then
 	echo "Stowing tp configs"
-	stow Xorg-tp bash-tp
-	echo "Installing Xorg configuration"
+	stow tp 
+	echo "Installing tp Xorg configuration"
 	sudo mkdir -p /etc/X11/xorg.conf.d
 	sudo cp 20-intel.conf /etc/X11/xorg.conf.d
 	sudo cp 50-trackpoint.conf /etc/X11/xorg.conf.d
 elif [ "$1" = "dt" ]; then
 	echo "Stowing dt configs"
-	stow Xorg bash
+	stow dt
 fi
 echo "Installing scripts"
 cp -R scripts/* ~/.local/bin/
