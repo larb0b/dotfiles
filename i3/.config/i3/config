@@ -168,6 +168,10 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 	mode hide
+	colors {
+		focused_workspace #000000 #000000 #ffffff
+		inactive_workspace #000000 #000000 #c0c0c0
+	}
 }
 
 focus_follows_mouse no
@@ -193,3 +197,14 @@ bindsym --release $mod+b exec mtoggle
 
 # Effectively disable titlebar
 for_window [class=".*"] border pixel 2
+
+set $WS1 I
+set $WS2 II
+set $WS3 III
+set $WS4 IV
+set $WS5 V
+set $WS6 VI
+set $WS7 VII
+set $WS8 VIII
+set $WS9 IX
+set $WS10 X
