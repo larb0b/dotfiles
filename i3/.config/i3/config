@@ -190,3 +190,6 @@ for_window [class="Tor Browser"] floating enabled
 
 # Enable/disable TrackPoint scrolling (useful for 9 stuff)
 bindsym --release $mod+b exec mtoggle
+
+# Effectively disable titlebar
+for_window [class=".*"] border pixel 2
