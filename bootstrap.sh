@@ -13,12 +13,13 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 echo "Making necessary dirs"
 mkdir -p ~/.local/bin
 mkdir -p ~/.local/man/man1
+mkdir -p ~/.config
 mkdir -p ~/Backgrounds
 echo "Removing ~/.bashrc"
 [ -e ~/.bashrc ] && rm ~/.bashrc
 echo "Updating apt and installing packages"
 sudo apt update
-sudo apt install xorg xinput feh stow i3 tmux firefox vim network-manager golang-go pulseaudio alsa-utils vlc python3-pip build-essential mercurial htop compton libx11-dev libxext-dev libxt-dev xorg-dev fonts-liberation pavucontrol -y
+sudo apt install xorg xinput feh stow i3 tmux firefox vim network-manager golang-go pulseaudio alsa-utils vlc python3-pip build-essential mercurial htop compton libx11-dev libxext-dev libxt-dev xorg-dev fonts-liberation thunderbird pavucontrol gnome-themes-standard -y
 echo "Installing Python stuff (pip3)"
 pip3 install youtube-dl
 echo "Replacing /etc/network/interfaces"
@@ -37,7 +38,7 @@ cp st/config.h st-git/config.h
 sh -c 'cd st-git && make'
 cp st-git/st ~/.local/bin/st
 echo "Stowing general configs"
-stow i3 tmux vim bash Xorg
+stow i3 tmux vim bash Xorg gtk
 if [ "$1" = "tp" ]; then
 	echo "Stowing tp configs"
 	stow tp 
