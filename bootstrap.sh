@@ -15,6 +15,7 @@ mkdir -p ~/.local/bin
 mkdir -p ~/.local/man/man1
 mkdir -p ~/.config
 mkdir -p ~/Backgrounds
+sudo mkdir -p /etc/X11/xorg.conf.d
 echo "Removing ~/.bashrc"
 [ -e ~/.bashrc ] && rm ~/.bashrc
 echo "Updating apt and installing packages"
@@ -43,12 +44,13 @@ if [ "$1" = "tp" ]; then
 	echo "Stowing tp configs"
 	stow tp 
 	echo "Installing tp Xorg configuration"
-	sudo mkdir -p /etc/X11/xorg.conf.d
 	sudo cp bootscraps/20-intel.conf /etc/X11/xorg.conf.d
 	sudo cp bootscraps/50-trackpoint.conf /etc/X11/xorg.conf.d
 elif [ "$1" = "dt" ]; then
 	echo "Stowing dt configs"
 	stow dt
+	echo "Installing dt Xorg configuration"
+	sudo cp bootscraps/95-accel.conf /etc/X11/xorg.conf.d
 fi
 echo "Installing scripts"
 cp -R scripts/* ~/.local/bin/
