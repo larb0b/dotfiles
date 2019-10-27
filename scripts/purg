@@ -1,2 +1,2 @@
 #!/bin/sh
-PATH=$HOME/Projects/purgatorio/Linux/386/bin emu $* -r$HOME/Projects/purgatorio -c1 /dis/sh.dis -c wm/wm wm/logon -u $USER
+PATH=$HOME/.local/purgatorio/Linux/386/bin emu $* -r$HOME/.local/purgatorio -c1 /dis/sh.dis -c wm/wm wm/logon -u $USER
