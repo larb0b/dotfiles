@@ -191,6 +191,7 @@ bindsym --release $mod+z exec slock
 
 # Program overrides
 for_window [class="Tor Browser"] floating enabled
+for_window [class="Inferno"] floating enabled
 
 # Enable/disable TrackPoint scrolling (useful for 9 stuff)
 bindsym --release $mod+b exec mtoggle
