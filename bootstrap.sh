@@ -20,11 +20,21 @@ echo "Removing ~/.bashrc"
 [ -e ~/.bashrc ] && rm ~/.bashrc
 echo "Updating apt and installing packages"
 sudo apt update
-sudo apt install xorg xinput feh stow i3 tmux firefox vim network-manager golang-go pulseaudio alsa-utils vlc python3-pip build-essential mercurial htop compton libx11-dev libxext-dev libxt-dev xorg-dev fonts-liberation thunderbird pavucontrol gnome-themes-standard -y
+sudo apt install xorg xinput feh stow i3 tmux firefox vim network-manager golang-go pulseaudio alsa-utils vlc python3-pip build-essential gcc-multilib mercurial htop compton libx11-dev libxext-dev libxt-dev xorg-dev fonts-liberation thunderbird pavucontrol gnome-themes-standard -y
 echo "Installing Python stuff (pip3)"
 pip3 install youtube-dl
 echo "Replacing /etc/network/interfaces"
 sudo cp bootscraps/interfaces /etc/network/interfaces
+echo "Enabling i386 architecture and installing purgatorio dependencies"
+sudo dpkg --add-architecture i386
+sudo apt update
+sudo apt install libx11-dev:i386 libxext-dev:i386 -y
+echo "Cloning, building, and installing purgatorio"
+git clone https://github.com/9mirrors/purgatorio $HOME/.local/purgatorio
+cp bootscraps/mkconfig $HOME/.local/purgatorio
+sh -c 'PATH=$PATH:$HOME/.local/purgatorio/Linux/386/bin; cd $HOME/.local/purgatorio && ./makemk.sh && mk mkdirs && mk nuke && mk install'
+echo "Creating purgatorio home folder"
+sh -c 'cd $HOME/.local/purgatorio && cp -r usr/inferno usr/$USER'
 echo "Cloning, building, and installing plan9port"
 sudo git clone https://github.com/9fans/plan9port /usr/local/plan9
 sudo sh -c 'cd "/usr/local/plan9" && ./INSTALL'

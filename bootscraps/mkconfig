@@ -1,0 +1,9 @@
+ROOT=$HOME/.local/purgatorio
+TKSTYLE=std
+CONF=emu
+SYSHOST=Linux
+SYSTARG=$SYSHOST
+OBJTYPE=386
+OBJDIR=$SYSTARG/$OBJTYPE
+<$ROOT/mkfiles/mkhost-$SYSHOST
+<$ROOT/mkfiles/mkfile-$SYSTARG-$OBJTYPE
