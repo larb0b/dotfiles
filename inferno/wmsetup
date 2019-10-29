@@ -1,3 +1,4 @@
-ndb/cs
+run /lib/sh/profile
+bind /locale/US_Eastern /locale/timezone
 auth/factotum
 auth/feedkey
