@@ -35,6 +35,8 @@ cp bootscraps/mkconfig $HOME/.local/purgatorio
 sh -c 'PATH=$PATH:$HOME/.local/purgatorio/Linux/386/bin; cd $HOME/.local/purgatorio && ./makemk.sh && mk mkdirs && mk nuke && mk install'
 echo "Creating purgatorio home folder"
 sh -c 'cd $HOME/.local/purgatorio && cp -r usr/inferno usr/$USER'
+echo "Installing purgatorio dotfiles"
+ln -sf $(pwd)/inferno/wmsetup $HOME/.local/purgatorio/usr/$USER/lib/wmsetup
 echo "Cloning, building, and installing plan9port"
 sudo git clone https://github.com/9fans/plan9port /usr/local/plan9
 sudo sh -c 'cd "/usr/local/plan9" && ./INSTALL'
