@@ -20,7 +20,7 @@ echo "Removing ~/.bashrc"
 [ -e ~/.bashrc ] && rm ~/.bashrc
 echo "Updating apt and installing packages"
 sudo apt update
-sudo apt install xorg xinput feh stow i3 tmux firefox vim network-manager golang-go pulseaudio alsa-utils vlc python3-pip build-essential gcc-multilib mercurial htop compton libx11-dev libxext-dev libxt-dev xorg-dev fonts-liberation thunderbird pavucontrol gnome-themes-standard -y
+sudo apt install xorg xinput feh stow i3 tmux firefox vim network-manager golang-go pulseaudio alsa-utils vlc python3-pip build-essential gcc-multilib mercurial htop compton libx11-dev libxext-dev libxt-dev xorg-dev fonts-liberation thunderbird pavucontrol gnome-themes-standard network-manager-gnome -y
 echo "Installing Python stuff (pip3)"
 pip3 install youtube-dl
 echo "Replacing /etc/network/interfaces"
