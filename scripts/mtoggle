@@ -1,9 +1,5 @@
 #!/bin/sh
-if xinput | grep "TPPS/2 IBM" > /dev/null; then
-	variant="TPPS/2 IBM TrackPoint"
-else
-	variant="TPPS/2 Elan TrackPoint"
-fi
 x=0
-xinput list-props "$variant" | grep "libinput Scroll Method Enabled" | grep -q "0, 0, 0" && x=1
-xinput set-prop "$variant" "libinput Scroll Method Enabled" 0, 0, $x
+variant=$(xinput | grep TrackPoint | awk '{print $4}')
+xinput list-props "TPPS/2 $variant TrackPoint" | grep "libinput Scroll Method Enabled" | grep -q "0, 0, 0" && x=1
+xinput set-prop "TPPS/2 $variant TrackPoint" "libinput Scroll Method Enabled" 0, 0, $x
