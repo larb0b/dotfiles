@@ -67,7 +67,7 @@ fi
 echo "Installing scripts"
 cp -R scripts/* ~/.local/bin/
 echo "Setting vim.basic as editor"
-sudo update-alternatives --set editor /usr/libexec/vim/vim.basic
+sudo update-alternatives --set editor /usr/bin/vim.basic
 echo "Removing temporary files"
 sudo rm -rf /tmp/drawterm
 rm -rf st-git
