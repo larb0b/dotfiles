@@ -48,8 +48,7 @@ cp /tmp/drawterm/drawterm.1 ~/.local/man/man1/drawterm.1
 echo "Cloning, building, and installing st"
 git clone https://git.suckless.org/st st-git
 cp st/config.h st-git/config.h
-sh -c 'cd st-git && make'
-cp st-git/st ~/.local/bin/st
+sh -c 'cd st-git && make && make PREFIX=~/.local install'
 echo "Stowing general configs"
 stow i3 tmux vim bash Xorg gtk
 if [ "$1" = "tp" ]; then
