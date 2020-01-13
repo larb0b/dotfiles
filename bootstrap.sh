@@ -33,17 +33,17 @@ sudo apt install libx11-dev:i386 libxext-dev:i386 -y
 echo "Cloning, building, and installing purgatorio"
 git clone https://github.com/9mirrors/purgatorio $HOME/.local/purgatorio
 cp bootscraps/mkconfig $HOME/.local/purgatorio
-sh -c 'PATH=$PATH:$HOME/.local/purgatorio/Linux/386/bin; cd $HOME/.local/purgatorio && ./makemk.sh && mk mkdirs && mk nuke && mk install'
+(PATH=$PATH:$HOME/.local/purgatorio/Linux/386/bin; cd $HOME/.local/purgatorio && ./makemk.sh && mk mkdirs && mk nuke && mk install)
 echo "Creating purgatorio home folder"
-sh -c 'cd $HOME/.local/purgatorio && cp -r usr/inferno usr/$USER'
+(cd $HOME/.local/purgatorio && cp -r usr/inferno usr/$USER)
 echo "Installing purgatorio dotfiles"
 ln -sf $(pwd)/inferno/wmsetup $HOME/.local/purgatorio/usr/$USER/lib/wmsetup
 echo "Cloning, building, and installing plan9port"
 sudo git clone https://github.com/9fans/plan9port /usr/local/plan9
-sudo sh -c 'cd "/usr/local/plan9" && ./INSTALL'
+(cd /usr/local/plan9 && ./INSTALL)
 echo "Cloning, building, and installing drawterm"
 hg clone https://code.9front.org/hg/drawterm /tmp/drawterm
-sudo sh -c 'cd "/tmp/drawterm" && CONF=unix make'
+sudo sh -c 'cd /tmp/drawterm && CONF=unix make'
 cp /tmp/drawterm/drawterm ~/.local/bin/drawterm
 cp /tmp/drawterm/drawterm.1 ~/.local/man/man1/drawterm.1
 echo "Fetching and installing IBM Plex Mono"
@@ -55,7 +55,7 @@ fc-cache
 echo "Cloning, building, and installing st"
 git clone https://git.suckless.org/st st-git
 cp st/config.h st-git/config.h
-sh -c 'cd st-git && make && make PREFIX=~/.local install'
+(cd st-git && make && make PREFIX=~/.local install)
 echo "Stowing general configs"
 stow i3 tmux vim bash Xorg gtk
 if [ "$1" = "tp" ]; then
