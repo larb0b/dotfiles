@@ -13,6 +13,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 echo "Making necessary dirs"
 mkdir -p ~/.local/bin
 mkdir -p ~/.local/man/man1
+mkdir -p ~/.local/share/fonts
 mkdir -p ~/.config
 mkdir -p ~/Backgrounds
 sudo mkdir -p /etc/X11/xorg.conf.d
@@ -45,6 +46,12 @@ hg clone https://code.9front.org/hg/drawterm /tmp/drawterm
 sudo sh -c 'cd "/tmp/drawterm" && CONF=unix make'
 cp /tmp/drawterm/drawterm ~/.local/bin/drawterm
 cp /tmp/drawterm/drawterm.1 ~/.local/man/man1/drawterm.1
+echo "Fetching and installing IBM Plex Mono"
+curl -LO https://github.com/IBM/plex/releases/download/v4.0.2/OpenType.zip
+unzip -qo OpenType.zip
+cp OpenType/IBM-Plex-Mono/*.otf ~/.local/share/fonts
+chmod 644 ~/.local/share/fonts/*.otf
+fc-cache
 echo "Cloning, building, and installing st"
 git clone https://git.suckless.org/st st-git
 cp st/config.h st-git/config.h
@@ -69,5 +76,6 @@ echo "Setting vim.basic as editor"
 sudo update-alternatives --set editor /usr/bin/vim.basic
 echo "Removing temporary files"
 sudo rm -rf /tmp/drawterm
+rm -rf OpenType
 rm -rf st-git
 echo "Done."

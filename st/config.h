@@ -40,7 +40,7 @@ DEALINGS IN THE SOFTWARE.
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Liberation Mono:pixelsize=14:antialias=true:autohint=true";
+static char *font = "IBM Plex Mono:pixelsize=14:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
