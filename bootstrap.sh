@@ -40,7 +40,7 @@ echo "Installing purgatorio dotfiles"
 ln -sf $(pwd)/inferno/wmsetup $HOME/.local/purgatorio/usr/$USER/lib/wmsetup
 echo "Cloning, building, and installing plan9port"
 sudo git clone https://github.com/9fans/plan9port /usr/local/plan9
-(cd /usr/local/plan9 && ./INSTALL)
+sudo sh -c 'cd /usr/local/plan9 && ./INSTALL'
 echo "Cloning, building, and installing drawterm"
 hg clone https://code.9front.org/hg/drawterm /tmp/drawterm
 sudo sh -c 'cd /tmp/drawterm && CONF=unix make'
