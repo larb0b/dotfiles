@@ -77,5 +77,6 @@ sudo update-alternatives --set editor /usr/bin/vim.basic
 echo "Removing temporary files"
 sudo rm -rf /tmp/drawterm
 rm -rf OpenType
+rm -rf OpenType.zip
 rm -rf st-git
 echo "Done."
