@@ -1,0 +1,1 @@
+ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="046d", ATTR{idProduct}=="c52b", ATTR{product}=="USB Receiver", TEST=="power/control", ATTR{power/control}:="on"

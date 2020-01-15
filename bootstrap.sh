@@ -64,6 +64,8 @@ if [ "$1" = "tp" ]; then
 	echo "Installing tp Xorg configuration"
 	sudo cp bootscraps/20-intel.conf /etc/X11/xorg.conf.d
 	sudo cp bootscraps/50-trackpoint.conf /etc/X11/xorg.conf.d
+	echo "Installing udev rule for Unifying Receiver"
+	sudo cp bootscraps/10-logi-rules.rules /etc/udev/rules.d
 elif [ "$1" = "dt" ]; then
 	echo "Stowing dt configs"
 	stow dt
